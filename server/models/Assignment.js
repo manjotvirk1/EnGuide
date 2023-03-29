@@ -22,4 +22,4 @@ const Assignment = new Schema({
 
 });
 
-module.exports = Task = mongoose.model('task',Assignment);
+module.exports = Task = mongoose.model('assignment',Assignment);

@@ -11,23 +11,27 @@ const Signup = (props) => {
   });
 
   const handleSubmit = async (e) => {
-    // console.log(credentials)
+    console.log(credentials);
     e.preventDefault();
-    const { userType,name, email, password } = credentials;
-    const response = await fetch("http://localhost:5000/api/user/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/JSON",
-      },
-      body: JSON.stringify({ name, email, password, userType }),
-    });
+    const { userType, name, email, password } = credentials;
+    const response = await fetch(
+      "http://localhost:5000/api/auth/user/createuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/JSON",
+        },
+        body: JSON.stringify({ name, email, password, userType }),
+      }
+    );
     const json = await response.json();
     // console.log(json);
     if (json.success) {
       localStorage.setItem("token", json.authToken);
       navigate("/");
     } else {
-     console.log("Invalid credentials");
+      console.log("Invalid credentials");
+      alert("Invalid credentials");
     }
   };
 
@@ -46,10 +50,10 @@ const Signup = (props) => {
               className="img-fluid"
             />
           </div>
-          <div className="col-md-6 contents mt-5">
+          <div className="col-md-6 contents mt-3">
             <div className="row justify-content-center">
               <div className="col-md-8">
-                <div className="mb-4">
+                <div className="mb-4 text-center">
                   <h3>Sign Up</h3>
                 </div>
                 <form onSubmit={handleSubmit}>
@@ -103,19 +107,25 @@ const Signup = (props) => {
                       name="userType"
                       id="student"
                       value="Student"
-                      checked
+                      // checked
                       onChange={onChange}
                     />
                     <label className="form-check-label" htmlFor="student">
                       Student
                     </label>
                   </div>
-
-                  <input
-                    type="submit"
-                    value="Sign Up"
-                    className="btn btn-block btn-info"
-                  />
+                  <div className="text-center">
+                    <input
+                      type="submit"
+                      value="Sign Up"
+                      className="btn"
+                      style={{
+                        backgroundColor: "#6c63ff",
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                      }}
+                    />
+                  </div>
                 </form>
               </div>
             </div>
