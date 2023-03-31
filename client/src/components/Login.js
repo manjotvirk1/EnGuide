@@ -7,6 +7,7 @@ const Login =()=> {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
+    userType:""
   });
 
   const onChange = (e) => {
@@ -16,7 +17,7 @@ const Login =()=> {
   const handleSubmit = async (e) => {
     // console.log(credentials);
     e.preventDefault();
-    const { email, password } = credentials;
+    const { email, password,userType } = credentials;
     const response = await fetch("http://localhost:5000/api/auth/user/login", {
       method: "POST",
       headers: {
@@ -28,6 +29,7 @@ const Login =()=> {
     console.log(json);
     if (json.success) {
       localStorage.setItem("token", json.authToken);
+      localStorage.setItem("userType", credentials.userType);
       navigate("/");
     } else {
       console.log("Invalid credentials");
@@ -70,6 +72,33 @@ const Login =()=> {
                   onChange={onChange}
                 />
               </div>
+              <div className="form-check mb-2">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="userType"
+                      id="teacher"
+                      value="Teacher"
+                      onChange={onChange}
+                    />
+                    <label className="form-check-label" htmlFor="teacher">
+                      Teacher
+                    </label>
+                  </div>
+                  <div className="form-check mb-4">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="userType"
+                      id="student"
+                      value="Student"
+                      // checked
+                      onChange={onChange}
+                    />
+                    <label className="form-check-label" htmlFor="student">
+                      Student
+                    </label>
+                  </div>
               <div className="login-button">
                 <button  type="submit" className="btncs">Login</button>
               </div>

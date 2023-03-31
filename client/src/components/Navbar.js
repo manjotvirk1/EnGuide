@@ -5,7 +5,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const handleLogout=()=>{
         localStorage.removeItem('token');
-        // console.log(localStorage.getItem('token'));
+        localStorage.removeItem('userType');
         console.log("Logged out");
         navigate('/login');
     }
@@ -26,15 +26,12 @@ const Navbar = () => {
                             <Link className="nav-link" to="/assignment">Assignment</Link>
                         </li>
                     </ul>
-                    {/* {!localStorage.getItem('token')? */}
                     <form className="d-flex">
-                    {/* <Link className="btn btn-light mx-1" to="/logout" role="button">Logout</Link> */}
                     <Link className="btn btn-light mx-1" to="/login" role="button">Login</Link>
                     <Link className="btn btn-light mx-1" to="/signup" role="button">Signup</Link>
-                    </form>
-                    {/* : */}
                     <button onClick={handleLogout} className="btn btn-light">Logout</button>
-                    {/* } */}
+                    </form>
+                    
                 </div>
             </nav>
     </div>

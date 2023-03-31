@@ -13,6 +13,7 @@ import { loadUser } from './actions/authAction';
 import { Provider } from 'react-redux';
 import Assignments from './components/Assignment/Assignments';
 import AssignmentState from './context/assignment/AssignmentState';
+import LoginModal from './components/LoginModal';
 
 
 

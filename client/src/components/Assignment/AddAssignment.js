@@ -16,7 +16,8 @@ const AddAssignment = (props) => {
   const onChange=(e)=>{
     setAssignment({...assignment,[e.target.name]:e.target.value})
   }
-  return (
+   return(
+    
     <div>
         <div className='container my-3'>
       <h2>Add an assignment</h2>
