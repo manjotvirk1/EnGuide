@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {useNavigate, Link} from 'react-router-dom';
 import "../css/Login.css";
 
-const Login = () => {
+const Login =()=> {
   let navigate=useNavigate();
   const [credentials, setCredentials] = useState({
     email: "",
@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(credentials);
+    // console.log(credentials);
     e.preventDefault();
     const { email, password } = credentials;
     const response = await fetch("http://localhost:5000/api/auth/user/login", {
@@ -71,7 +71,7 @@ const Login = () => {
                 />
               </div>
               <div className="login-button">
-                <button type="submit">Login</button>
+                <button  type="submit" className="btncs">Login</button>
               </div>
             </form>
 

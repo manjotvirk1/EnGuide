@@ -2,9 +2,13 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const handleLogout=()=>{
-
-  }
+    const navigate = useNavigate();
+    const handleLogout=()=>{
+        localStorage.removeItem('token');
+        // console.log(localStorage.getItem('token'));
+        console.log("Logged out");
+        navigate('/login');
+    }
   return (
     <div>
      <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:"#847ef4"}}>
@@ -24,11 +28,12 @@ const Navbar = () => {
                     </ul>
                     {/* {!localStorage.getItem('token')? */}
                     <form className="d-flex">
+                    {/* <Link className="btn btn-light mx-1" to="/logout" role="button">Logout</Link> */}
                     <Link className="btn btn-light mx-1" to="/login" role="button">Login</Link>
                     <Link className="btn btn-light mx-1" to="/signup" role="button">Signup</Link>
                     </form>
                     {/* : */}
-                    {/* <button onClick={handleLogout} className="btn btn-primary">Logout</button> */}
+                    <button onClick={handleLogout} className="btn btn-light">Logout</button>
                     {/* } */}
                 </div>
             </nav>

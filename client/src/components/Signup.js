@@ -7,7 +7,7 @@ const Signup = (props) => {
     name: "",
     email: "",
     password: "",
-    usertype: "",
+    userType: "",
   });
 
   const handleSubmit = async (e) => {
@@ -38,6 +38,8 @@ const Signup = (props) => {
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
+
+
 
   return (
     <div className="content mt-5 justify-content-center">
@@ -114,6 +116,12 @@ const Signup = (props) => {
                       Student
                     </label>
                   </div>
+                  {/* <div className="form-check mb-2">
+        <input className="form-check-input"
+         type="radio" name="userType" value="Teacher" onChange={onChange}/> Teacher
+        <input className="form-check-input"
+         type="radio" name="userType" value="Student" onChange={onChange}/> Student
+      </div> */}
                   <div className="text-center">
                     <input
                       type="submit"
