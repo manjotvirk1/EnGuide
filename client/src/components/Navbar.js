@@ -27,9 +27,12 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <form className="d-flex">
-                    <Link className="btn btn-light mx-1" to="/login" role="button">Login</Link>
-                    <Link className="btn btn-light mx-1" to="/signup" role="button">Signup</Link>
-                    <button onClick={handleLogout} className="btn btn-light">Logout</button>
+                    {!localStorage.getItem('token') &&
+                    <Link className="btn btn-light mx-1" to="/login" role="button">Login</Link> }
+                    {!localStorage.getItem('token') &&
+                    <Link className="btn btn-light mx-1" to="/signup" role="button">Signup</Link>}
+                    {localStorage.getItem('token') &&
+                    <button onClick={handleLogout} className="btn btn-light">Logout</button>}
                     </form>
                     
                 </div>

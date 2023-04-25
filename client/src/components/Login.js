@@ -30,6 +30,7 @@ const Login =()=> {
     if (json.success) {
       localStorage.setItem("token", json.authToken);
       localStorage.setItem("userType", credentials.userType);
+      
       navigate("/");
     } else {
       console.log("Invalid credentials");

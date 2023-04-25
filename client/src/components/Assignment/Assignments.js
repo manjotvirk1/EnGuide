@@ -34,10 +34,10 @@ const Assignments = (props) => {
     <>
     {localStorage.getItem("userType")==='Teacher' &&
       <AddAssignment/>}
-      
-      <div className='row my-3'>
-        <h2>Assignments</h2>
-        <div className='container'>
+      <br/>
+      <div className='row my-6'>
+        <h2 className='text-center'>Assignments</h2>
+        <div className='container text-center'>
         {(assignments.length===0) && 'No assignments to display'}
         </div>
         {assignments.map((assignment) => {

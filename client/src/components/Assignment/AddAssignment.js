@@ -24,17 +24,19 @@ const AddAssignment = (props) => {
       <form>
         <div className="form-group">
           <label htmlFor='name'>Name</label>
-          <input type="text" className="form-control" id="name" name='name' value={assignment.name} aria-describedby="emailHelp" placeholder="title" onChange={onChange} minLength={5} required/>
+          <input type="text" className="form-control" id="name" name='name' value={assignment.name} aria-describedby="emailHelp" placeholder="Enter the name" onChange={onChange} minLength={5} required/>
         </div>
         <div className="form-group">
           <label htmlFor='subject'>Subject</label>
-          <input type="text" className="form-control" id='subject' name='subject' value={assignment.subject} placeholder="description" onChange={onChange} minLength={5} required/>
+          <input type="text" className="form-control" id='subject' name='subject' value={assignment.subject} placeholder="subject" onChange={onChange} minLength={5} required/>
         </div>
         <div className="form-group">
           <label htmlFor='task'>Task</label>
-          <input type="text" className="form-control" id='task' name='task' value={assignment.task} placeholder="tag" onChange={onChange} minLength={5} required/>
+          <input type="text" className="form-control" id='task' name='task' value={assignment.task} placeholder="task" onChange={onChange} minLength={5} required/>
         </div>
+        <div  className='text-center my-2'>
         <button disabled={assignment.name.length<5 || assignment.task.length<5} type="submit" className="btn btn-primary" onClick={handleClick}>Add Assignment</button>
+        </div>
       </form>
       </div>
     </div>

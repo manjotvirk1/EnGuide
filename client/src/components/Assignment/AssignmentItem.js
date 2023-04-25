@@ -6,12 +6,12 @@ const AssignmentItem = (props) => {
     const { assignment } = props;
     const { deleteAssignment } = context;
     return (
-        <div className='col-md-3'>
-            <div className="card my-3" >
+        <div className='col-md-4'>
+            <div className="card my-4" >
                 <div className="card-body">
                     <div className='d-flex align-items-center'>
                         <h5 className="card-title">{assignment.name}</h5>
-                        <i className='far fa-trash-alt mx-2' onClick={()=>{deleteAssignment(assignment._id); }}></i>
+                        {localStorage.getItem("userType")==='Teacher' &&<i className='far fa-trash-alt mx-2' onClick={()=>{deleteAssignment(assignment._id); }}></i>}
                         {/* <i className='far fa-edit mx-2' onClick={()=>{updateAssignment(assignment); }}></i> */}
                     </div>
                     <h6 className="card-title">{assignment.subject}</h6>
